@@ -10,10 +10,11 @@ import { DB_ADDRESS } from './config';
 import routes from './routes';
 
 const { PORT = 3000 } = process.env;
+const originReg = /https?:\/\/mesto\.ks\.nomoredomainsicu\.ru/;
 const app = express();
 mongoose.connect(DB_ADDRESS);
 
-app.use(cors({ origin: 'https://mesto.ks.nomoredomainsicu.ru' }));
+app.use(cors({ origin: originReg }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
