@@ -5,10 +5,7 @@ const {
 } = process.env;
 
 module.exports = {
-  apps: [{
-    name: 'mesto-backend',
-    script: './dist/app.js',
-  }],
+  apps: [],
   deploy: {
     production: {
       user: DEPLOY_USER,
@@ -16,8 +13,7 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: 'https://github.com/K0nstant1nS/web-plus-pm2-deploy.git',
       path: DEPLOY_PATH,
-      'pre-deploy': `scp ./*.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
-      'post-deploy': 'cd backend && npm i && npm run build',
-    },
+      'post-deploy': 'cd backendfrontend'
   },
-};
+}
+}
